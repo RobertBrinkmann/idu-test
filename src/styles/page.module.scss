@@ -1,5 +1,7 @@
 .main {
+  background: rgba(160, 160, 240, 0.1);
   min-height: 100vh;
+  padding: 1rem 3rem;
 }
 
 .description {
@@ -24,8 +26,8 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-  .content {
-    padding: 4rem;
+  .main {
+    padding: 1rem 1.5rem;
   }
 
   .list {

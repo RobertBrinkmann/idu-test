@@ -37,7 +37,7 @@ const List = ({ url }: { url: string }) => {
 
   return (
     <div className={styles.list}>
-      <h1 className="heading display-2">List</h1>
+      <h2 className="heading display-4">List</h2>
       <div className="items">
         {(error && <p className="alert alert-danger">{error}</p>) ||
           items.map((item: Child, index: number) => (

@@ -1,7 +1,5 @@
 .list {
   :global {
-    .heading {
-    }
     .items {
       padding: 1rem;
 
@@ -32,8 +30,6 @@
             border-bottom: 1px solid #333;
           }
 
-          .name {
-          }
           .symbol {
             position: absolute;
             top: 50%;

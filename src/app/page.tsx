@@ -1,94 +1,48 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/page.module.scss";
 
 export default function Home() {
+  const url: string = `https://gist.githubusercontent.com/mong-idu/cd32bca72c490f3c7f17ab8619b1e16c/raw/236755473b8e2fa7bace2e9f3670e8f82e78c8ee/test.json`;
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+      <div className="container">
+        <div className={`${styles.description} mb-4`}>
+          <h1 className="display-1">Test</h1>
+          <h3>Description:</h3>
+          <p className="mb-4">
+            Create a new React application and push it up to a git repository.
+            Feel free to use any CLI tools to assist in the creation of the
+            React application; your ability to initiate a project is not part of
+            this test. A popular choice is https://create-react-app.dev/
           </p>
-        </a>
+          <h5>Instructions:</h5>
+          <ul>
+            <li>
+              Fetches the json data from:
+              <a className="ms-1 text-decoration-underline" href={url}>
+                {url}
+              </a>
+            </li>
+            <li>Displays the data in a indented list.</li>
+            <li>
+              Display the children of each element of the list and any children
+              of those children. Each with indentation to indicate depth.
+            </li>
+            <li>
+              Have each member of the list and their children show/hide their
+              children when clicked.
+            </li>
+            <li>Have any children hidden by default.</li>
+          </ul>
+          <p>
+            Do commits as you feel appropriate. Make sure all code is pushed
+            when you finish and is available to be viewed by members of our
+            team.
+          </p>
+        </div>
       </div>
     </main>
   );

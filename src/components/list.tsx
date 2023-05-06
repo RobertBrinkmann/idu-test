@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Item from "@/components/item";
 import type Child from "@/types/child";
 import styles from "@/styles/list.module.scss";
 
@@ -30,9 +31,7 @@ const List = ({ url }: { url: string }) => {
       <div className="items">
         {(error && <p className="alert alert-danger">{error}</p>) ||
           items.map((item: Child, index: number) => (
-            <div key={item.id} className="item">
-              <pre>{JSON.stringify(item, null, 2)}</pre>
-            </div>
+            <Item key={item.id} item={item} />
           ))}
       </div>
     </div>

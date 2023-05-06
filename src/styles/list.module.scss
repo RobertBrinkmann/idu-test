@@ -1,18 +1,95 @@
 .list {
   :global {
+    .heading {
+    }
     .items {
-      .item {
-        background: rgba(0, 0, 0, 0.03);
-        padding: 0.5rem;
-        margin-bottom: 0.5rem;
+      padding: 1rem;
 
-        .title {
-          padding: 0.2rem 0;
+      .item {
+        position: relative;
+
+        > .title {
+          display: inline-block;
+          position: relative;
+          padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-left: 1px solid #333;
+          }
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 1.5rem;
+            border-bottom: 1px solid #333;
+          }
+
+          .name {
+          }
+          .symbol {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            font-size: 1.5rem;
+
+            transform: translateY(-50%);
+          }
         }
-        .children {
-          border-left: 2px solid #333;
-          padding-left: 1rem;
-          margin-top: 1rem;
+
+        > .children {
+          display: none;
+          height: 0;
+          padding: 0 1rem;
+
+          // transition: height ease-in-out 0.2s;
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            border-left: 1px solid #333;
+            top: 0;
+            left: 0;
+            bottom: 0;
+          }
+        }
+
+        &:first-child {
+          > .title:before {
+            top: -50%;
+          }
+        }
+        &:last-child {
+          > .title:before {
+            bottom: 50%;
+          }
+          > .children:before {
+            display: none;
+          }
+        }
+
+        &.has-children {
+          > .title {
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        &.expanded {
+          > .children {
+            display: block;
+            height: auto;
+          }
         }
       }
     }

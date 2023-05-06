@@ -6,6 +6,14 @@ import styles from "@/styles/page.module.scss";
 export default function Home() {
   const url: string = `https://gist.githubusercontent.com/mong-idu/cd32bca72c490f3c7f17ab8619b1e16c/raw/236755473b8e2fa7bace2e9f3670e8f82e78c8ee/test.json`;
 
+  const [data, setData] = useState([]);
+
+  fetch(url).then((response: Response) => {
+    response.json().then((json) => {
+      setData(json);
+    });
+  });
+
   return (
     <main className={styles.main}>
       <div className="container">
@@ -42,6 +50,10 @@ export default function Home() {
             when you finish and is available to be viewed by members of our
             team.
           </p>
+        </div>
+        <div className={styles.list}>
+          <h2 className="display-2">List</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
       </div>
     </main>

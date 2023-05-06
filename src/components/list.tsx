@@ -7,23 +7,33 @@ const List = ({ url }: { url: string }) => {
   const [items, setItems] = useState([]);
   const [error, setError] = useState("");
 
-  fetch(url).then((response: Response) => {
-    response
-      .json()
-      .then((json) => {
-        if (!json) {
+  // Fetch list data
+  fetch(url)
+    .then((response: Response) => {
+      // Parse the response into JSON
+      response
+        .json()
+        .then((json) => {
+          // If it's empty show an error
+          if (!json) {
+            setItems([]);
+            setError("JSON was empty");
+          } else {
+            setItems(json);
+            setError("");
+          }
+        })
+        .catch((error) => {
+          // Display errors
           setItems([]);
-          setError("JSON was empty");
-        } else {
-          setItems(json);
-          setError("");
-        }
-      })
-      .catch((error) => {
-        setItems([]);
-        setError(`Failed to parse: ${error.message}`);
-      });
-  });
+          setError(`Failed to parse: ${error.message}`);
+        });
+    })
+    .catch((error) => {
+      // Display errors
+      setItems([]);
+      setError(`Failed to fetch: ${error.message}`);
+    });
 
   return (
     <div className={styles.list}>

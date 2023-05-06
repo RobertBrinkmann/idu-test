@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import List from "@/components/list";
 import styles from "@/styles/page.module.scss";
 
 export default function Home() {
@@ -51,10 +52,7 @@ export default function Home() {
             team.
           </p>
         </div>
-        <div className={styles.list}>
-          <h2 className="display-2">List</h2>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        </div>
+        <List url={url} />
       </div>
     </main>
   );

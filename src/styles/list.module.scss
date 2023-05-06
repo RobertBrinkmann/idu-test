@@ -1,0 +1,15 @@
+.list {
+  :global {
+    .items {
+      border-left: 1px solid #333;
+
+      .item {
+        pre {
+          background: rgba(0, 0, 0, 0.04);
+          padding: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

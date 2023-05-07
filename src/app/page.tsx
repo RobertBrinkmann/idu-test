@@ -7,14 +7,6 @@ import styles from "@/styles/page.module.scss";
 export default function Home() {
   const url: string = `https://gist.githubusercontent.com/mong-idu/cd32bca72c490f3c7f17ab8619b1e16c/raw/236755473b8e2fa7bace2e9f3670e8f82e78c8ee/test.json`;
 
-  const [data, setData] = useState([]);
-
-  fetch(url).then((response: Response) => {
-    response.json().then((json) => {
-      setData(json);
-    });
-  });
-
   return (
     <main className={`${styles.main} container`}>
       <div className={`${styles.description} mb-4`}>
